@@ -1,0 +1,40 @@
+.login{
+    height: 90vh;
+    width: 90vw;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+}
+
+.login-image{
+    flex: 0.3;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box{
+    flex: 0.7;
+    /* background-color: white; */
+    border-radius: 20px;
+    margin: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:black;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-body{
+    /* background-color: white; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    align-items: center;
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+}
