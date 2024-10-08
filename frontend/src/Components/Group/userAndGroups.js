@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../componentStyle.css';
 import { IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { AnimatePresence, motion } from "framer-motion";
 
 
 
@@ -69,33 +70,46 @@ const UserAndGroups = () => {
         }
     ])
     return (
-        <div className='list-container'>
-            <div className='list-header con-title'>
-                <p>Available Groups</p>
-            </div>
-            <div className='bar-search'>
-                <IconButton>
-                    <SearchIcon />
-                </IconButton>
-                <input placeholder='search' className='search-box' />
-            </div>
-            <div
-                className='list-body'
+        <AnimatePresence>
+            <motion.div 
+            className='list-container'
+            initial={{opacity:0,scale:0}}
+            animate={{opacity:1,scale:1}}
+            exit={{opacity:1,scale:1}}
+            transition={{
+                ease:"anticipate",
+                duration:0.3
+            }}
             >
-                {
-                    Conversation.map((item, index) => {
-                        return <div
-                            className='conversation-item list-item'
-                            key={index}
+                <div className='list-header con-title'>
+                    <p>Available Groups</p>
+                </div>
+                <div className='bar-search'>
+                    <IconButton>
+                        <SearchIcon />
+                    </IconButton>
+                    <input placeholder='search' className='search-box' />
+                </div>
+                <div
+                    className='list-body'
+                >
+                    {
+                        Conversation.map((item, index) => {
+                            return <motion.div
+                                whileHover={{ scale: 1.01 }}
+                                whileTap={{ scale: 0.97 }}
+                                className='conversation-item list-item'
+                                key={index}
                             >
-                            <p className='con-icon'>{item.name[0]}</p>
-                            <p className='con-title'>{item.name}</p>
-                        </div>
-                    })
-                }
-            </div>
+                                <p className='con-icon'>{item.name[0]}</p>
+                                <p className='con-title'>{item.name}</p>
+                            </motion.div>
+                        })
+                    }
+                </div>
 
-        </div>
+            </motion.div>
+        </AnimatePresence>
     )
 }
 
